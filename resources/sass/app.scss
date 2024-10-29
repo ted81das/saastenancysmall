@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* Blog Post Styles */
+    article.blog-post {
+        @apply font-light;
+        @apply text-lg;
+    }
+
+    article.blog-post p {
+        @apply mt-6;
+    }
+
+    article.blog-post h1 {
+        @apply font-medium;
+        @apply text-4xl;
+        @apply mt-6;
+    }
+
+    article.blog-post h2 {
+        @apply font-medium;
+        @apply text-3xl;
+        @apply mt-6;
+    }
+
+    article.blog-post h3 {
+        @apply font-medium;
+        @apply text-2xl;
+        @apply mt-6;
+    }
+
+    article.blog-post h4 {
+        @apply font-medium;
+        @apply text-xl;
+        @apply mt-6;
+    }
+
+    article.blog-post h5 {
+        @apply font-medium;
+        @apply text-lg;
+        @apply mt-6;
+    }
+
+    article.blog-post h6 {
+        @apply font-medium;
+        @apply text-base;
+        @apply mt-6;
+    }
+
+    // ul and ol styles
+    article.blog-post ul {
+        @apply list-disc;
+        @apply pl-6;
+        @apply mt-6;
+    }
+
+    article.blog-post li {
+        @apply my-2;
+    }
+
+    article.blog-post code{
+        @apply mt-4;
+    }
+
+    article.blog-post a {
+        @apply font-semibold;
+    }
+
+    article.blog-post ol {
+        @apply list-decimal;
+        @apply pl-6;
+        @apply mt-6;
+    }
+
+    strong {
+        @apply font-semibold;
+    }
+
+    code {
+        @apply font-mono;
+        @apply bg-gray-100 #{!important};
+        @apply rounded-md;
+        @apply p-4 #{!important};
+        @apply block;
+        @apply whitespace-pre;
+        @apply relative;
+        @apply text-sm;
+        @apply overflow-x-auto #{!important};
+        @apply overflow-y-hidden #{!important};
+        @apply max-w-full;
+    }
+
+    code:hover .copy-button {
+        @apply block;
+        @apply visible;
+    }
+
+    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* For IE, Edge and Firefox */
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+
+    .left-shadow {
+        box-shadow: -20px 0px 15px -15px rgba(0, 0, 0, 0.25);
+    }
+
+    a {
+        @apply text-primary-500;
+    }
+
+    .copy-button {
+        @apply text-xs;
+        @apply font-semibold;
+        @apply bg-gray-200;
+        @apply rounded-md;
+        @apply p-2;
+        @apply absolute;
+        @apply right-0;
+        @apply top-0;
+        @apply mt-2;
+        @apply mr-2;
+        @apply cursor-pointer;
+        @apply invisible;
+    }
+
+
+    .glowing-button:before {
+        content: "";
+        background: linear-gradient(
+                45deg,
+                #ff0000,
+                #ff7300,
+                #fffb00,
+                #48ff00,
+                #00ffd5,
+                #002bff,
+                #7a00ff,
+                #ff00c8,
+                #ff0000
+        );
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        background-size: 400%;
+        z-index: -1;
+        filter: blur(5px);
+        -webkit-filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glow 20s linear infinite;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .glowing-button:after {
+        z-index: -1;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+
+    }
+}
+
+@layer utilities {
+    // animations
+    .scale-up-center {
+        animation: scale-up-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    @keyframes scale-up-center {
+        0% {
+            transform: scale(0.75);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .slide-in-top {
+        animation: slide-in-top 0.3s both;
+    }
+
+    @keyframes slide-in-top {
+        0% {
+            transform: translateY(-150px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes glow {
+        0% {
+            background-position: 0 0;
+        }
+        50% {
+            background-position: 400% 0;
+        }
+        100% {
+            background-position: 0 0;
+        }
+    }
+}
+

@@ -1,0 +1,106 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "SaaSykit is the best starter kit (boilerplate) for your next SaaS project.",
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "aws/aws-sdk-php": "^3.293",
+        "biscolab/laravel-recaptcha": "^6.1",
+        "blade-ui-kit/blade-icons": "^1.5",
+        "cknow/laravel-money": "^8.0",
+        "codeisawesomehq/filament-tinyeditor": "^1.4",
+        "filament/filament": "^3.2",
+        "filament/spatie-laravel-media-library-plugin": "^3.2",
+        "guzzlehttp/guzzle": "^7.2",
+        "intervention/image": "^3.4",
+        "jeffgreco13/filament-breezy": "v2.4",
+        "laravel/framework": "^11.23",
+        "laravel/horizon": "^5.21",
+        "laravel/sanctum": "^4.0",
+        "laravel/socialite": "^5.6",
+        "laravel/tinker": "^2.8",
+        "laravel/ui": "^4.2",
+        "livewire/livewire": "^3.5",
+        "mews/purifier": "^3.4",
+        "mpociot/versionable": "^4.4",
+        "resend/resend-php": "^0.12.0",
+        "saasykit/filament-country-field": "^1.0",
+        "saasykit/laravel-invoices": "^1.0",
+        "saasykit/laravel-open-graphy": "^1.2",
+        "spatie/laravel-cookie-consent": "^3.3",
+        "spatie/laravel-flash": "^1.9",
+        "spatie/laravel-permission": "^6.0",
+        "spatie/laravel-sitemap": "^7.0",
+        "stechstudio/filament-impersonate": "^3.8",
+        "stripe/stripe-php": "^12.0",
+        "symfony/http-client": "^7.0",
+        "symfony/mailgun-mailer": "^7.0",
+        "symfony/postmark-mailer": "^7.0"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.13",
+        "deployer/deployer": "7.3",
+        "doctrine/dbal": "^3.6",
+        "fakerphp/faker": "^1.9.1",
+        "kkomelin/laravel-translatable-string-exporter": "^1.22",
+        "larastan/larastan": "^2.0",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.18",
+        "laravel/telescope": "^5.0",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^8.1",
+        "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ignition": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "laravel/telescope"
+            ]
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
